@@ -1,0 +1,142 @@
+[
+  {
+    "id": "msg_001",
+    "sender": "hr@arasaka.corp",
+    "subject": "ACTION REQUIRED: Annual Compliance Training",
+    "timestamp": "2077-11-05T09:00:00",
+    "body": "Dear Employee, this is a reminder to complete your mandatory annual compliance training regarding data privacy and corporate security protocols. Failure to complete this module by Friday, November 10th, will result in a temporary suspension of your network access. Please log in to the employee portal immediately to finish the course."
+  },
+  {
+    "id": "msg_002",
+    "sender": "offers@best-deals.net",
+    "subject": "CONGRATULATIONS! You've Won a Vacation Package!",
+    "timestamp": "2077-11-05T09:15:00",
+    "body": "You have been selected as the lucky winner of an all-inclusive vacation to the Crystal Palace orbital resort! This is a limited-time offer. To claim your prize, simply reply with your banking routing number and social security code to verify your identity. Don't miss out on this once-in-a-lifetime opportunity!"
+  },
+  {
+    "id": "msg_003",
+    "sender": "project.manager@militech.com",
+    "subject": "Code Review Request: Sentinel Project",
+    "timestamp": "2077-11-05T10:00:00",
+    "body": "Hi Team, I have pushed the latest updates for the Sentinel security daemon to the repository. Please review the new encryption modules and submit your feedback by tomorrow at 2:00 PM. We need to finalize the build before the client demo on Monday."
+  },
+  {
+    "id": "msg_004",
+    "sender": "newsletter@nightcity.news",
+    "subject": "Weekly Digest: Market Trends and Weather Update",
+    "timestamp": "2077-11-05T10:30:00",
+    "body": "Here is your weekly update on Night City affairs. Stocks in BioTechnica have risen by 3% following the announcement of their new agricultural initiative. The weather forecast predicts heavy acid rain in the industrial district this weekend; citizens are advised to stay indoors. In sports, the Razorballs defeated the Psycho-Squad 12-10 in overtime."
+  },
+  {
+    "id": "msg_006",
+    "sender": "sarah.j@personal.net",
+    "subject": "Lunch next week?",
+    "timestamp": "2077-11-05T12:00:00",
+    "body": "Hey! It's been a while since we caught up. Are you free for lunch sometime next week? I found a great new noodle spot in Japantown that I've been dying to try. Let me know what days look good for you."
+  },
+  {
+    "id": "msg_007",
+    "sender": "security@netwatch.org",
+    "subject": "Security Alert: Unusual Login Activity Detected",
+    "timestamp": "2077-11-05T13:00:00",
+    "body": "We detected a login attempt to your account from an unrecognized device in the Pacifica region. If this was not you, please change your password immediately and enable two-factor authentication. Your account security is our top priority."
+  },
+  {
+    "id": "msg_009",
+    "sender": "recruiter@headhunters.biz",
+    "subject": "Job Opportunity: Senior Systems Architect",
+    "timestamp": "2077-11-05T15:00:00",
+    "body": "I came across your profile and was impressed by your experience with neural network architecture. A leading tech firm in City Center is looking for a Senior Systems Architect. Would you be open to a brief introductory call on Tuesday at 10:00 AM to discuss the role?"
+  },
+  {
+    "id": "msg_010",
+    "sender": "noreply@spam-bot.xyz",
+    "subject": "Enlarge your... network capacity instantly!",
+    "timestamp": "2077-11-05T16:00:00",
+    "body": "Is your neural link slow? Do you suffer from lag? Click here to download our proprietary RAM booster software! Guaranteed to increase your processing speed by 500% overnight. No credit card required for the trial!"
+  },
+  {
+    "id": "msg_012",
+    "sender": "david.m@biotechnica.res",
+    "subject": "Action Item: Submit Lab Reports",
+    "timestamp": "2077-11-06T09:30:00",
+    "body": "Good morning. I am still waiting for the lab analysis reports from the synthetic tissue samples we tested last week. Please compile the data and send the final report to me by end of day today. The regulatory committee needs this information for their review tomorrow."
+  },
+  {
+    "id": "msg_013",
+    "sender": "traffic@ncpd.gov",
+    "subject": "Traffic Advisory: Road Closure in Watson",
+    "timestamp": "2077-11-06T10:00:00",
+    "body": "Due to an ongoing police investigation involving a cyber-incident, the main highway leading into Watson is currently closed. Commuters are advised to take alternate routes via the Industrial Sector. Expect significant delays during the morning rush hour."
+  },
+  {
+    "id": "msg_014",
+    "sender": "marketing@realwater.co",
+    "subject": "Special Offer: clean water delivered to your door",
+    "timestamp": "2077-11-06T11:00:00",
+    "body": "Tired of the metallic taste of tap water? RealWater delivers glacier-sourced hydration straight to your apartment. Subscribe today and get your first month at 50% off! Taste the difference of purity."
+  },
+  {
+    "id": "msg_015",
+    "sender": "dr.v@ripperdoc.med",
+    "subject": "Appointment Confirmation",
+    "timestamp": "2077-11-06T12:00:00",
+    "body": "This email is to confirm your appointment for optics calibration tomorrow at 4:00 PM. Please arrive 15 minutes early to complete the necessary intake forms. If you need to cancel or reschedule, please contact our office at least 24 hours in advance."
+  },
+  {
+    "id": "msg_018",
+    "sender": "entertainment@braindance.weekly",
+    "subject": "Top 5 BDs You Must Experience!",
+    "timestamp": "2077-11-06T15:00:00",
+    "body": "Looking for a thrill? Check out our editor's picks for the most immersive Braindances released this month! From high-speed racing simulations to deep-sea exploration, we have something for everyone. Click here to read the full reviews."
+  },
+  {
+    "id": "msg_019",
+    "sender": "mom@family.net",
+    "subject": "Happy Birthday!",
+    "timestamp": "2077-11-06T16:00:00",
+    "body": "Happy Birthday, sweetheart! I hope you're having a wonderful day. Dad and I sent a small package to your apartment; let us know when you get it. Give us a call this weekend when you have some free time. Love you!"
+  },
+  {
+    "id": "msg_020",
+    "sender": "admin@crypto-bank.fake",
+    "subject": "URGENT: Account Locked Due to Suspicious Activity",
+    "timestamp": "2077-11-07T08:00:00",
+    "body": "We have detected unauthorized access to your crypto-wallet. Your account has been temporarily locked for your protection. To restore access, please click the link below and verify your private key immediately. Failure to verify within 24 hours will result in permanent account deletion."
+  },
+  {
+    "id": "msg_022",
+    "sender": "unknown@anonymous.net",
+    "subject": "I have your data",
+    "timestamp": "2077-11-07T02:00:00",
+    "body": "I managed to recover the files you thought were deleted. If you don't want them released to the public, transfer 10,000 credits to my account within 24 hours. This is your only warning."
+  },
+  {
+    "id": "msg_028",
+    "sender": "dating@singles-match.com",
+    "subject": "Meet Singles in Your Area!",
+    "timestamp": "2077-11-07T15:00:00",
+    "body": "Lonely? Our matching algorithm has found 5 singles in your area who are a 99% match for you! Click here to view their profiles and start chatting today. Sign up is free for the first week!"
+  },
+  {
+    "id": "msg_030",
+    "sender": "editor@tech-weekly.com",
+    "subject": "Review: Latest Cyberdeck Models",
+    "timestamp": "2077-11-07T17:00:00",
+    "body": "In this week's issue, we review the newest cyberdecks on the market. Find out which models offer the best performance-to-cost ratio and which ones are just flashy toys. Read the full article on our website."
+  },
+  {
+    "id": "msg_031",
+    "sender": "alerts@smart-home.sys",
+    "subject": "System Alert: High Power Usage",
+    "timestamp": "2077-11-07T18:00:00",
+    "body": "Your smart home system has detected unusually high power usage in the living room sector. This may indicate a faulty appliance or unauthorized device connection. We recommend checking your devices or scheduling a diagnostic scan."
+  },
+  {
+    "id": "msg_035",
+    "sender": "fraud@bank.com",
+    "subject": "Suspicious Transaction Alert",
+    "timestamp": "2077-11-08T11:00:00",
+    "body": "We have detected a transaction of 500 Eurodollars that appears unusual for your spending profile. If you did not authorize this transaction, please log in to your account immediately to freeze your card and file a dispute."
+  }
+]

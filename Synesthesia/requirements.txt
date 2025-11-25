@@ -1,0 +1,8 @@
+streamlit
+pymongo
+fastapi
+uvicorn
+pandas
+requests
+
+reflex==0.8.20
