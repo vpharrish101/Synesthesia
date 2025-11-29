@@ -1,8 +1,8 @@
 [
   {
     "id": "msg_001",
-    "sender": "hr@arasaka.corp",
-    "subject": "ACTION REQUIRED: Annual Compliance Training",
+    "sender": "hr@arasaka.corpx",
+    "subject": "ACTION IMMEDIATELY REQUIRED: Annual Compliance Training",
     "timestamp": "2077-11-05T09:00:00",
     "body": "Dear Employee, this is a reminder to complete your mandatory annual compliance training regarding data privacy and corporate security protocols. Failure to complete this module by Friday, November 10th, will result in a temporary suspension of your network access. Please log in to the employee portal immediately to finish the course."
   },

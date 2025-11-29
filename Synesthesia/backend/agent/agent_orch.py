@@ -175,8 +175,8 @@ def supersummarizer(user_question: str, all_emails: list):
 Sender: {e.get('sender')}
 Subject: {e.get('subject')}
 Category: {e.get('category')}
-Body:
-{e.get('body')}
+Body: {e.get('body')}
+Actions: {e.get('actions')}
 ----- EMAIL END -----
 """
 

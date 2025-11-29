@@ -4,13 +4,12 @@ from pymongo import MongoClient
 
 DB_URL=os.getenv("MONGO_URI","mongodb://localhost:27017")
 client=MongoClient(DB_URL)
-db=client["email_agent2"]
-
+db=client["RTTE"]
 Prompts=db["Sys_prompts"]
 
 
 def init_prompt(prompt_data:dict):
-    Prompts.replace_one({"_id": "active_prompts"}, prompt_data, upsert=True)
+    Prompts.replace_one({"_id": "active_prompts"},prompt_data,upsert=True)
     print("prompt init doneee")
 
 
@@ -194,12 +193,9 @@ Rules:
 5. If the question is ambiguous, list ALL reasonable matches.
 6. Always return clear, concise answers in plain text.
 7. Do NOT reproduce full email bodies unless specifically requested.
-8. When answering the question, you MUST select the email(s) most relevant 
-   to the keywords in the question.
-
+8. When answering the question, you MUST select the email(s) most relevant to the keywords in the question.
 9. NEVER return an email that does not match the user’s query keywords.
 10. NEVER guess. NEVER pick a random email.
-
 11. For questions about companies (e.g., Biotechnica), find emails mentioning that company.
 
 """),

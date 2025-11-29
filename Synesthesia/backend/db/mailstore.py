@@ -3,7 +3,7 @@ import os
 
 DB_URL=os.getenv("MONGO_URI","mongodb://localhost:27017")
 client=MongoClient(DB_URL)
-db=client["email_agent"]
+db=client["RTTE"]
 Emails=db["Emails"]
 
 def get_all_emails():
