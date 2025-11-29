@@ -1,92 +1,115 @@
-import sys,os
-
-from fastapi import FastAPI,HTTPException
+import sys, os
+import tempfile
+from fastapi import FastAPI, HTTPException, UploadFile, File, Query
 from pydantic import BaseModel
 from backend.db import email_orch
 from backend.utils import sysprompts
 from backend import main_orch
-sys.path.insert(0,os.path.abspath(os.path.join(os.path.dirname(__file__),"..")))
+from backend.rag import rag_search
 
-main=main_orch.Main_Orch()
-app=FastAPI(title="Synesthesia")
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+main = main_orch.Main_Orch()
+app = FastAPI(title="Synesthesia")
 
-class AskPayload(BaseModel):
-    email_id:str
-    question:str
-    all_emails: list | None = None
+from fastapi.middleware.cors import CORSMiddleware
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # or put your frontend URL here
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+# Health
 @app.get("/health")
 def health_chk():
-    return{
-        "status":"OK",
-        "message":"Backend up and running"
-    }
+    return {"status": "OK", "message": "Backend up and running"}
 
 
-
-@app.get("/all_emails")
+# Email stuff
+@app.get("/emails")
 def all_emails():
     try:
         return email_orch.get_all_emails()
     except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Fetch Error: {e}"
-        )
-    
-@app.get("/email")
-def fetch_one_email(id:str):
-    email=email_orch.get_email(id)
-    if email is None: raise HTTPException(status_code=404,detail=f"Email {id} not found")
-    return email["body"]
+        raise HTTPException(status_code=500, detail=f"Fetch Error: {e}")
 
-@app.post("/email")
-def change_content(email_id:str,updates:dict):
+
+@app.get("/email/{id}")
+def fetch_one_email(id: str):
+    email = email_orch.get_email(id)
+    if email is None:
+        raise HTTPException(status_code=404, detail=f"Email {id} not found")
+    # Return the entire email object so frontend has sender, subject, body, etc.
+    return email
+
+
+@app.patch("/email/{email_id}")
+def change_content(email_id: str, updates: dict):
     try:
-        email_orch.update_email(email_id,updates)
+        email_orch.update_email(email_id, updates)
     except Exception as e:
-        raise HTTPException(status_code=500,detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.post("/email/upload")
+async def ingest_emails(file: UploadFile = File(...)):
+    try:
+        if file.content_type not in ["application/json"]:
+            raise HTTPException(status_code=400, detail="Invalid File struct. Upload only JSON")
+        data = await file.read()
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".json") as tmp:
+            tmp.write(data)
+            temp_path = tmp.name
+        email_orch.ingest_from_json(temp_path)
+        rag_search.build_idx()
+        return {"Status": "200 OK"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Ingestion error: {e}")
 
-@app.get("/prompts")
+
+# prompt stuff
+@app.get("/prompts/get_all")
 def get_prompts():
     return sysprompts.load_prompts()
 
-@app.post("/prompts")
-def update_prompts(data:dict):
+
+@app.post("/prompts/change_one")
+def update_prompts(data: dict):
     try:
         sysprompts.init_prompt(data)
-        return {"status":"ok"}
+        return {"status": "ok"}
     except Exception as e:
-        raise HTTPException(status_code=500,detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
 
 
-
+# RAG Search
 @app.get("/search")
-def ragSearch_emails(q:str):
+def ragSearch_emails(q: str):
     try:
         from backend.rag import rag_search
         return rag_search.hybrid_rag(q)
     except Exception as e:
-        raise HTTPException(status_code=500,detail=f"RAG search error: {e}")
+        raise HTTPException(status_code=500, detail=f"RAG search error: {e}")
 
 
+# DeepSeek 7b llm Queries
+class AutoDraftPayload(BaseModel):
+    email_id: str
+    prompt: str
 
-@app.post("/ask")
-def ask(payload: AskPayload):
+@app.post("/ds7m/ask")
+def ask(payload: main_orch.AskPayload):
     from backend.agent.agent_orch import orchestrator
 
-    # CASE 1 — Query about a specific email
     if payload.email_id:
         email = email_orch.get_email(payload.email_id)
         if not email:
             raise HTTPException(status_code=404, detail="Email not found")
         return orchestrator(email["body"], payload.question)
 
-    # CASE 2 — Query across ALL emails
     if payload.all_emails:
         combined_context = "\n\n".join([
             f"Subject: {e.get('subject')}\nBody: {e.get('body')}"
@@ -97,32 +120,42 @@ def ask(payload: AskPayload):
     raise HTTPException(status_code=400, detail="No valid input provided")
 
 
-
-@app.post("/agent")
-def resp_draft(email_id:str,prompt:str):  #contains message id and prompt 
-    try:
-        from backend.agent.agent_orch import autodraft_reply
-        email=email_orch.get_email(email_id)
-
-        if email is None: raise ValueError(f"Email body missing for ID '{email_id}'")
-
-        response=autodraft_reply(email["body"],"Legit",prompt)
-        return response
-    
-    except Exception as e:
-        raise HTTPException(status_code=500,detail=f"Draft agent error: {e}")
-        
+@app.post("/ds7m/autodraft")
+def resp_draft(email_id: str = Query(...), prompt: str = Query(...)):
+    from backend.agent.agent_orch import autodraft_reply
+    import json
+    email = email_orch.get_email(email_id)
+    if not email:
+        raise HTTPException(status_code=404, detail="Email not found")
+    response = autodraft_reply(email["body"], "Legit", prompt)
+    if isinstance(response, str):
+        response = json.loads(response)
+    draft_text = f"Subject: {response.get('subject')}\n\n{response.get('body')}"
+    return {"draft": draft_text}
 
 
-
-class SuperQueryPayload(BaseModel):
-    question: str
-
-@app.post("/superquery")
-def superquery_api(payload: SuperQueryPayload):
+@app.post("/ds7m/superquery")
+def superquery_api(payload: main_orch.SuperQueryPayload):
     all_emails = email_orch.get_all_emails()
     from backend.agent.agent_orch import supersummarizer
     answer = supersummarizer(payload.question, all_emails)
     return {"answer": answer}
 
 
+
+#drafts
+@app.get("/drafts")
+def all_drafts():
+    try:
+        return email_orch.get_all_drafts()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Fetch Error: {e}")
+
+@app.post("/drafts/add_one")
+def insert_draft(recipient,subject,body):
+    try:
+        email_orch.save_draft(recipient=recipient,
+                              subject=subject,
+                              body=body)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Draft ingestion error: {e}")

@@ -1,9 +1,15 @@
 from backend.utils import sysprompts
-from backend.db import email_orch
-from backend.rag import rag_search
-
+from pydantic import BaseModel
 class Main_Orch:
     def __init__(self):
         sysprompts.init_prompt(sysprompts.prompts)
-        email_orch.ingest_from_json(r"D:\Python311\Pets\Synesthesia\data\email_input.json")
-        rag_search.build_idx()
+
+
+
+class AskPayload(BaseModel):
+    email_id:str
+    question:str
+    all_emails: list | None = None
+
+class SuperQueryPayload(BaseModel):
+    question: str
