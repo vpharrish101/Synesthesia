@@ -1,6 +1,6 @@
 # Synesthesia - Email Productivity Agent
 
-Modern, elegant email management with AI assistance. Built with Next.js, React, and Tailwind CSS.
+Modern, elegant email management with AI assistance.
 
 ## Features
 
