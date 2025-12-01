@@ -65,10 +65,8 @@ export function EmailList({ emails, selected, onSelect }) {
     )
   }
 
-  // toggle sorting
   const toggleSort = () => setSorted(!sorted)
 
-  // sorted or original list
   const displayedEmails = sorted
     ? [...emails].sort((a, b) => {
         const ca = (a.category || "other").toLowerCase()
@@ -80,7 +78,6 @@ export function EmailList({ emails, selected, onSelect }) {
   return (
     <div className="flex flex-col gap-4 max-h-full overflow-y-auto custom-scroll">
 
-      {/* SORT BUTTON */}
       <div className="flex justify-end pr-2">
         <button
           onClick={toggleSort}
@@ -116,15 +113,12 @@ export function EmailList({ emails, selected, onSelect }) {
               ${isSelected ? "ring-2 ring-purple-400" : ""}
             `}
           >
-            {/* OUTER GRADIENT GLOW */}
             <div
               className={`
                 absolute inset-0 rounded-xl blur-md opacity-80
                 bg-gradient-to-br ${grad}
               `}
             />
-
-            {/* CATEGORY RIBBON */}
             <div
               className={`
                 absolute left-0 top-0 bottom-0 w-1.5 rounded-l-xl ${ribbon}
@@ -132,7 +126,6 @@ export function EmailList({ emails, selected, onSelect }) {
               `}
             />
 
-            {/* CARD BODY */}
             <div
               className="
                 relative z-10 rounded-xl bg-white/70 backdrop-blur-md
@@ -149,7 +142,6 @@ export function EmailList({ emails, selected, onSelect }) {
               <div className="flex justify-between items-center">
                 <h4 className="text-sm font-bold line-clamp-1">{email.subject}</h4>
 
-                {/* CATEGORY BADGE */}
                 <span
                   className={`
                     text-[10px] px-2 py-0.5 rounded-full border font-semibold 

@@ -27,7 +27,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
   const [body, setBody] = useState("")
   const [isGenerating, setIsGenerating] = useState(false)
 
-  /** Close on ESC key */
   const handleKeyClose = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose()
@@ -40,7 +39,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
     return () => document.removeEventListener("keydown", handleKeyClose)
   }, [handleKeyClose])
 
-  /** Prefill when replying to an email */
   useEffect(() => {
     if (replyEmail) {
       if (replyEmail.sender) setTo(replyEmail.sender)
@@ -48,7 +46,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
     }
   }, [replyEmail])
 
-  /** AI Draft Typing Animation */
     const handleGenerateDraft = async () => {
     if (!aiPrompt.trim()) return;
 
@@ -94,8 +91,8 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
 
   try {
     await api.addDraft(to, subject, body)
-    onRefresh()   // refresh inbox/drafts
-    onClose()     // close modal
+    onRefresh()   
+    onClose()     
   } catch (e) {
     console.error("Failed to save draft:", e)
   }
@@ -104,7 +101,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
 
   return (
     <>
-      {/* Overlay */}
       <div
         className="
         fixed inset-0 z-[999] 
@@ -114,14 +110,10 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
         onClick={onClose}
       />
 
-      {/* Modal */}
-      {/* BACKDROP */}
         <div className="fixed inset-0 bg-black/60 backdrop-blur-md z-[1000]" />
 
-        {/* MODAL CENTER WRAPPER */}
         <div className="fixed inset-0 z-[1001] flex items-center justify-center p-6">
 
-          {/* MODAL CARD */}
           <div
             className="
               w-full max-w-2xl
@@ -134,7 +126,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
             "
           >
 
-          {/* HEADER */}
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-text-primary">Compose Email</h2>
             <button
@@ -149,7 +140,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
           </div>
 
           <div className="space-y-5">
-            {/* TO */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-text-secondary">To:</label>
               <input
@@ -166,7 +156,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
               />
             </div>
 
-            {/* SUBJECT */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-text-secondary">Subject:</label>
               <input
@@ -182,7 +171,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
               />
             </div>
 
-            {/* AI PROMPT */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-text-secondary">AI Draft Prompt:</label>
 
@@ -220,7 +208,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
               </div>
             </div>
 
-            {/* BODY */}
             <div>
               <label className="block text-sm font-semibold mb-2 text-text-secondary">Message:</label>
               <textarea
@@ -246,7 +233,6 @@ export function ComposeModal({ onClose, onRefresh, replyEmail }: ComposeModalPro
             </div>
           </div>
 
-          {/* FOOTER */}
           <div className="flex gap-3 mt-8">
             <button
               onClick={handleSave}

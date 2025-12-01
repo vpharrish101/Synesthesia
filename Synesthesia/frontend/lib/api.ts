@@ -58,8 +58,8 @@ export const api = {
   apiCall<{ draft: string }>(
     "POST",
     `/ds7m/autodraft`,
-    {},                    // required otherwise it becomes a GET
-    { email_id, prompt }   // ALWAYS send both
+    {},                    
+    { email_id, prompt }   
   ),
   getDrafts: () => apiCall<any[]>("GET", "/drafts"),
   addDraft: (recipient: string, subject: string, body: string) =>

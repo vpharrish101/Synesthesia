@@ -1,10 +1,9 @@
 from backend.utils import sysprompts
 from pydantic import BaseModel
+
 class Main_Orch:
     def __init__(self):
         sysprompts.init_prompt(sysprompts.prompts)
-
-
 
 class AskPayload(BaseModel):
     email_id:str
@@ -13,3 +12,7 @@ class AskPayload(BaseModel):
 
 class SuperQueryPayload(BaseModel):
     question: str
+
+class AutoDraftPayload(BaseModel):
+    email_id:str
+    prompt:str

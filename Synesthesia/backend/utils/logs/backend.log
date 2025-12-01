@@ -3066,3 +3066,157 @@ ValueError: Missing ag_superquery prompt.
 2025-11-29 23:16:40,405 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
 2025-11-29 23:16:40,761 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
 2025-11-29 23:16:40,761 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:24:08,487 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:08,488 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:08,488 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:11,133 | INFO | EmailAgentBackend | action_item_extract() called for category=To-Do
+2025-12-01 04:24:11,388 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:24:11,664 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:24:11,665 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:24:11,678 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:14,453 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:19,267 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:19,663 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:24:19,913 | INFO | EmailAgentBackend | action_item_extract() called for category=Personal
+2025-12-01 04:24:21,687 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:24:21,687 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:24:21,690 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:27,904 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:28,752 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:29,126 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:24:30,348 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:24:30,348 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:24:30,350 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:31,188 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:24:32,408 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:32,885 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:24:34,137 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:34,991 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:24:36,055 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:36,702 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:24:37,929 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:38,651 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:24:39,991 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:40,499 | INFO | EmailAgentBackend | action_item_extract() called for category=Personal
+2025-12-01 04:24:41,884 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:42,580 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:24:42,581 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:24:42,582 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:43,584 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:44,475 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:24:44,475 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:24:44,476 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:45,048 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:24:45,048 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:24:45,050 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:24:46,037 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:24:46,917 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:24:47,487 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:24:47,487 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:28:13,847 | INFO | EmailAgentBackend | orchestrator() triggered
+2025-12-01 04:28:13,848 | INFO | EmailAgentBackend | User question: summarize this email
+2025-12-01 04:28:13,868 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:28:16,632 | INFO | EmailAgentBackend | Detected category: Important
+2025-12-01 04:28:19,574 | INFO | EmailAgentBackend | Detected intent = general
+2025-12-01 04:28:54,692 | INFO | EmailAgentBackend | supersummarizer() called
+2025-12-01 04:29:42,475 | INFO | EmailAgentBackend | supersummarizer() called
+2025-12-01 04:29:59,944 | INFO | EmailAgentBackend | supersummarizer() called
+2025-12-01 04:30:18,407 | INFO | EmailAgentBackend | autodraft_reply() called for category=Legit
+2025-12-01 04:30:24,197 | INFO | EmailAgentBackend | autodraft_reply() called for category=Legit
+2025-12-01 04:30:29,261 | INFO | EmailAgentBackend | autodraft_reply() called for category=Legit
+2025-12-01 04:31:46,635 | INFO | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-01 04:37:56,338 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:37:56,411 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:37:56,417 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:05,477 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:38:05,737 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:38:06,013 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:38:06,013 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:38:06,018 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:09,119 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:10,228 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:10,627 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:38:11,569 | INFO | EmailAgentBackend | action_item_extract() called for category=Personal
+2025-12-01 04:38:12,694 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:38:12,694 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:38:12,696 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:13,721 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:14,678 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:15,243 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:38:16,178 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:38:16,178 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:38:16,179 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:17,114 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:38:18,538 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:18,874 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:38:20,265 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:21,110 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:38:22,108 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:22,829 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:38:24,111 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:24,694 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:38:26,035 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:38:26,679 | INFO | EmailAgentBackend | action_item_extract() called for category=Personal
+2025-12-01 04:39:12,776 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:12,778 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:12,790 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:15,742 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:39:15,742 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:39:15,743 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:15,992 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:39:16,276 | INFO | EmailAgentBackend | action_item_extract() called for category=To-Do
+2025-12-01 04:39:18,195 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:39:19,653 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:20,425 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:22,363 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:22,737 | INFO | EmailAgentBackend | action_item_extract() called for category=Personal
+2025-12-01 04:39:22,980 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:39:24,800 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:39:25,861 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:26,721 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:27,952 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:28,431 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:39:28,431 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:39:28,433 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:29,173 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:39:30,389 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:39:30,906 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:39:32,374 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:33,349 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:34,156 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:34,940 | INFO | EmailAgentBackend | action_item_extract() called for category=Meeting
+2025-12-01 04:39:35,827 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:39:35,827 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:39:35,830 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:36,612 | INFO | EmailAgentBackend | action_item_extract() called for category=Personal
+2025-12-01 04:39:38,193 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:38,585 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:39:38,585 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:39:38,585 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:39,727 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:40,790 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:39:40,790 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:39:40,792 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:41,035 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:39:41,035 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:39:41,037 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:39:42,195 | INFO | EmailAgentBackend | action_item_extract() called for category=Newsletter
+2025-12-01 04:39:43,227 | INFO | EmailAgentBackend | action_item_extract() called for category=Important
+2025-12-01 04:39:43,489 | INFO | EmailAgentBackend | action_item_extract() called for category=Spam
+2025-12-01 04:39:43,489 | INFO | EmailAgentBackend | Email classified as spam \u2192 returning no tasks
+2025-12-01 04:40:41,547 | INFO | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-01 04:40:41,685 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda:0
+2025-12-01 04:40:41,685 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-01 04:44:26,951 | INFO | EmailAgentBackend | orchestrator() triggered
+2025-12-01 04:44:26,952 | INFO | EmailAgentBackend | User question: summarize this email
+2025-12-01 04:44:26,977 | INFO | EmailAgentBackend | categorize_email() called
+2025-12-01 04:44:29,809 | INFO | EmailAgentBackend | Detected category: Important
+2025-12-01 04:44:32,744 | INFO | EmailAgentBackend | Detected intent = general
+2025-12-01 04:45:15,607 | INFO | EmailAgentBackend | supersummarizer() called
+2025-12-01 04:45:55,208 | INFO | EmailAgentBackend | autodraft_reply() called for category=Legit
+2025-12-01 04:46:02,129 | INFO | EmailAgentBackend | autodraft_reply() called for category=Legit
+2025-12-01 04:46:39,315 | INFO | EmailAgentBackend | supersummarizer() called
+2025-12-01 04:48:40,361 | INFO | chromadb.telemetry.product.posthog | Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-01 04:48:40,634 | INFO | sentence_transformers.SentenceTransformer | Use pytorch device_name: cuda:0
+2025-12-01 04:48:40,635 | INFO | sentence_transformers.SentenceTransformer | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-12-01 04:49:49,930 | INFO | EmailAgentBackend | supersummarizer() called

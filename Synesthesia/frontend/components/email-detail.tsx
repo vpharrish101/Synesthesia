@@ -35,7 +35,6 @@ export function EmailDetail({ email, onClose, onRefresh }) {
       </button>
 
       <div className="space-y-4">
-        {/* Header */}
         <div>
           <h1 className="text-2xl font-bold text-text-primary mb-2">{email.subject}</h1>
           <div className="flex items-center gap-4 text-sm text-text-secondary">
@@ -45,19 +44,16 @@ export function EmailDetail({ email, onClose, onRefresh }) {
           </div>
         </div>
 
-        {/* Category */}
         <div className="flex gap-2">
           <span className="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-medium">
             {email.category}
           </span>
         </div>
 
-        {/* Body */}
         <pre className="bg-surface/40 p-4 rounded-lg text-text-primary whitespace-pre-wrap break-words text-sm">
           {email.body}
         </pre>
 
-        {/* Actions */}
         {email.actions?.length > 0 && (
           <div className="space-y-2">
             <h3 className="text-sm font-semibold text-text-primary">Actions</h3>
@@ -88,7 +84,6 @@ export function EmailDetail({ email, onClose, onRefresh }) {
           </div>
         )}
 
-        {/* Footer */}
         <div className="flex gap-2 pt-4">
           <Button onClick={handleAutoDraft} disabled={isDrafting} className="flex items-center gap-2">
             <Zap size={16} />

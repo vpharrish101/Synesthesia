@@ -38,7 +38,6 @@
   --sidebar-border: #f0ebf6;
   --sidebar-ring: #d4a8e8;
 
-  /* Custom Synesthesia theme variables */
   --primary-dark: #d4a8e8;
   --accent-dark: #d4a8e8;
   --surface: #ffffff;
@@ -52,13 +51,11 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
 
-  /* Google colors */
   --google-blue: #4285f4;
   --google-red: #ea4335;
   --google-yellow: #fbbc04;
   --google-green: #34a853;
 
-  /* Neo-brutalist colors */
   --neo-red: #ff4757;
   --neo-pink: #ff6b7a;
   --neo-purple: #a55eea;
@@ -66,7 +63,6 @@
   --neo-teal: #2ed573;
   --neo-orange: #ffa502;
 
-  /* New colors */
   --peach-sorbet: #ffb3a0;
   --cherry-pink: #f8686e;
   --midnight-purple: #4a1a6f;
@@ -108,7 +104,6 @@
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -154,14 +149,12 @@
 
   body {
     @apply bg-background text-foreground;
-    /* Enhanced gradient background with soft pink radial overlay */
     background: linear-gradient(180deg, #f8686e 0%, #d4a8e8 40%, #4a90ff 65%, #ffffff 100%),
       radial-gradient(ellipse at 30% 20%, rgba(255, 230, 245, 0.8) 0%, transparent 40%);
     background-attachment: fixed;
     min-height: 100vh;
   }
 
-  /* Custom scrollbar styling */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -185,7 +178,6 @@
   }
 }
 
-/* Improved frosted glass with better translucency and glassmorphism */
 .glass {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px) saturate(190%);
@@ -216,7 +208,6 @@
   box-shadow: 0 16px 56px rgba(212, 168, 232, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.85);
 }
 
-/* Stronger shimmer border animation for all cards */
 .glass-shimmer {
   position: relative;
 }
@@ -275,7 +266,6 @@
   animation: strong-shimmer 1.2s infinite;
 }
 
-/* Enhanced modal overlay with strong blur */
 .glass-overlay {
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(20px);
@@ -286,7 +276,6 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Stronger shimmer animation with enhanced glow */
 @keyframes strong-shimmer {
   0% {
     opacity: 1;
@@ -302,7 +291,6 @@
   }
 }
 
-/* Enhanced cursor-follow glow effect */
 @keyframes radial-glow {
   0% {
     opacity: 0;
@@ -339,7 +327,6 @@
   opacity: 1;
 }
 
-/* Modal animations enhanced */
 @keyframes modal-slide-up {
   from {
     opacity: 0;
@@ -368,7 +355,6 @@
   animation: modal-fade-in 0.4s ease-out;
 }
 
-/* Sidebar animations */
 @keyframes sidebar-collapse {
   from {
     width: 256px;
@@ -395,7 +381,6 @@
   animation: sidebar-expand 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Additional animations library */
 @keyframes pulse-glow {
   0%,
   100% {
@@ -555,7 +540,6 @@
   animation: typewriter 0.05s steps(1, end);
 }
 
-/* Smooth, beautiful scrolling */
 .custom-scroll::-webkit-scrollbar {
   width: 6px;
 }
@@ -568,7 +552,6 @@
 .custom-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
-/* Disable shimmer overlay for specific panels */
 .disable-shimmer::before {
   display: none !important;
 }

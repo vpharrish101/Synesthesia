@@ -17,7 +17,6 @@ export function Sidebar() {
     <div
       className={`${collapsed ? "w-20" : "w-64"} transition-glass glass-lg sticky left-0 top-0 h-screen flex flex-col p-4 gap-6 overflow-y-auto`}
     >
-      {/* Logo */}
       <div className="flex items-center gap-3 justify-between animate-scale-up">
         <div className="flex items-center gap-3 flex-1">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 via-pink-400 to-purple-600 text-white font-bold text-lg shadow-lg flex items-center justify-center border-2 border-purple-300 hover:animate-pulse-glow transition-all hover:scale-125">
@@ -38,7 +37,6 @@ export function Sidebar() {
         </button>
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1">
         <div className="space-y-2">
           {navItems.map((item, idx) => (
@@ -63,7 +61,6 @@ export function Sidebar() {
         </div>
       </nav>
 
-      {/* Footer */}
       <div className="pt-4 border-t border-white/20">
         {!collapsed && (
           <div className="text-xs text-text-muted text-center animate-fade-in space-y-1">

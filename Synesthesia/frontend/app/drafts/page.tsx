@@ -16,16 +16,13 @@ export default function DraftsPage() {
   async function loadDrafts() {
     try {
       const res = await api.getDrafts()
-
-      // Store original order for unsorting
-      setOriginalDrafts(res)
+      setOriginalDrafts(res) 
       setDrafts(res)
     } catch (e) {
       console.error("Failed to load drafts", e)
     }
   }
 
-  // 🔥 Sort drafts by newest → oldest (timestamp)
   const toggleSort = () => {
     if (sorted) {
       const sortedList = [...drafts].sort((a, b) => {
@@ -35,7 +32,6 @@ export default function DraftsPage() {
       })
       setDrafts(sortedList)
     } else {
-      // revert to original order
       setDrafts(originalDrafts)
     }
     setSorted(!sorted)
@@ -51,7 +47,6 @@ export default function DraftsPage() {
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-3xl font-bold">Drafts</h1>
 
-            {/* 🔥 SORT BUTTON */}
             {drafts.length > 0 && (
               <button
                 onClick={toggleSort}
@@ -88,7 +83,6 @@ export default function DraftsPage() {
                       w-full
                     "
                   >
-                    {/* OUTER GRADIENT */}
                     <div
                       className="
                         absolute inset-0 rounded-2xl blur-md opacity-80
@@ -96,7 +90,6 @@ export default function DraftsPage() {
                       "
                     />
 
-                    {/* LEFT RIBBON */}
                     <div
                       className="
                         absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl 
@@ -104,7 +97,6 @@ export default function DraftsPage() {
                       "
                     />
 
-                    {/* CARD BODY */}
                     <div
                       className="
                         relative z-10 glass rounded-2xl border border-white/30 

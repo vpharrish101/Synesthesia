@@ -10,5 +10,3 @@ def run_llm(prompt:str,
         json={"model":model,"prompt":prompt,"stream":False})    
     return response.json()["response"]
 
-result = run_llm("Explain quantum computing in simple terms.")
-print(result)

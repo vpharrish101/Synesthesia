@@ -29,13 +29,10 @@ export function ChatWidget({ selectedEmailId }: { selectedEmailId: string | null
       let res: any = null
 
       if (selectedEmailId) {
-        // log payload for debugging
-        console.log("[chat] calling /ds7m/ask with:", { email_id: selectedEmailId, question: msg })
+        console.log(" [chat] calling /ds7m/ask with:", { email_id: selectedEmailId, question: msg })
         payloadDescription = `/ds7m/ask payload: { email_id: ${selectedEmailId}, question: "..."}`
-        // call api.ask(email_id, question)
         res = await api.ask(selectedEmailId, msg)
       } else {
-        // log payload for debugging
         console.log("[chat] calling /ds7m/superquery with:", { question: msg })
         payloadDescription = `/ds7m/superquery payload: { question: "..." }`
         res = await api.superquery(msg)
@@ -46,8 +43,6 @@ export function ChatWidget({ selectedEmailId }: { selectedEmailId: string | null
       if (res?.answer) {
         assistantText = res.answer
       } else if (res?.raw) {
-        // 🔥 This makes your example print ONLY:
-        // "This email is categorized as Spam. No further actions available."
         assistantText = res.raw
       } else if (typeof res === "string") {
         assistantText = res

@@ -70,7 +70,6 @@ export function Dashboard() {
 
   return (
     <div className="flex h-full gap-4 p-4">
-      {/* LEFT COLUMN – FULL HEIGHT SIDEBAR */}
       <div className="w-full md:w-80 glass rounded-2xl p-4 flex flex-col overflow-hidden">
 
         <SearchBar
@@ -80,7 +79,6 @@ export function Dashboard() {
           onCompose={() => setShowCompose(true)}
         />
 
-        {/* Scrollable list container */}
         <div className="flex-1 overflow-y-auto mt-4 pr-1 custom-scroll">
           {loading ? (
             <div className="flex items-center justify-center py-8">
@@ -96,7 +94,6 @@ export function Dashboard() {
         </div>
       </div>
 
-      {/* CENTER COLUMN – EMAIL DETAILS */}
       {selectedEmail && (
         <div className="hidden lg:flex flex-1 glass rounded-2xl p-6 overflow-y-auto">
           <EmailDetail
@@ -107,7 +104,6 @@ export function Dashboard() {
         </div>
       )}
 
-      {/* RIGHT EMPTY PANEL */}
       {!selectedEmail && (
         <div className="hidden 2xl:flex flex-1 glass rounded-2xl p-6 items-center justify-center">
           <p className="text-text-secondary">Select an email to view details.</p>

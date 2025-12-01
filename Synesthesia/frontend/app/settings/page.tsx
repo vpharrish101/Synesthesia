@@ -44,11 +44,9 @@ export default function SettingsPage() {
     <div className="flex flex-col h-screen bg-background">
       <Navbar />
 
-      {/* LEFT-CENTERED COLUMN */}
       <div className="flex-1 p-6 overflow-y-auto flex justify-start">
         <div className="w-full max-w-2xl ml-4 space-y-6">
 
-          {/* PAGE HEADER */}
           <div className="flex items-center gap-3 mb-4">
             <Cog size={30} className="text-primary-dark animate-spin-slow" />
             <h1 className="text-3xl font-bold text-text-primary tracking-tight">
@@ -62,7 +60,6 @@ export default function SettingsPage() {
             </div>
           ) : (
             <>
-              {/* PROMPT EDIT BLOCKS */}
               <div className="space-y-8">
                 {Object.entries(prompts).map(([key, value]) => (
                   <div
@@ -72,7 +69,6 @@ export default function SettingsPage() {
                       hover:scale-[1.015] active:scale-[0.985]
                     "
                   >
-                    {/* 🔥 NEW BLUE–CYAN GRADIENT */}
                     <div
                       className="
                         absolute inset-0 rounded-2xl blur-md opacity-80
@@ -80,7 +76,6 @@ export default function SettingsPage() {
                       "
                     />
 
-                    {/* LEFT RIBBON */}
                     <div
                       className="
                         absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl 
@@ -88,7 +83,6 @@ export default function SettingsPage() {
                       "
                     />
 
-                    {/* INNER CONTENT */}
                     <div
                       className="
                         relative z-10 glass rounded-2xl border border-white/30 
@@ -117,7 +111,6 @@ export default function SettingsPage() {
                 ))}
               </div>
 
-              {/* BUTTON BAR */}
               <div className="flex gap-3 pt-2">
                 <Button onClick={handleSave} disabled={saving}>
                   {saving ? "Saving..." : "Save Changes"}
