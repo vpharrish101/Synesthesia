@@ -1,5 +1,5 @@
 import sys,os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+#sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   <Added for testing>
 import utils.llm_cfg as llm_cfg
 import utils.sysprompts as sysprompts
 
@@ -9,6 +9,14 @@ from utils.logging_cfg import logger
 
 def safe_llm_call(prompt:str,
                   context:str=""):
+    """
+    Defines a safw llm call, basically something to route the llm through try/error block
+    and logging purposes. 
+
+    Parameters: -
+    prompt: the input prompt
+    context: context prompt.
+    """
     try:
         logger.debug(f"[SAFE LLM CALL] Context={context},PromptHead={prompt[:200]!r}")
         result=llm_cfg.run_llm(prompt)
@@ -21,6 +29,12 @@ def safe_llm_call(prompt:str,
 
 
 def categorize_email(email_body:str):
+    """
+    Runs the categoirzation of email. Look at ag_categorization in utils/sysprompts.py to see how this works.
+    
+    Parameters: -
+    email_body: email to be classified
+    """
     logger.info("categorize_email() called")
     try:
         prompts=sysprompts.load_prompts()
@@ -44,6 +58,13 @@ Output JSON only:
 
 def action_item_extract(email_body:str,
                         category:str):
+    """
+    Runs the action item extraction. Look at ag_action_item in utils/sysprompts.py to see how this works.
+    
+    Parameters: -
+    email_body: email to be classified
+    category: extracted category from categorize_email()
+    """
     logger.info(f"action_item_extract() called :category={category}")
 
     try:
@@ -79,6 +100,17 @@ Return JSON only:
 def autodraft_reply(email_body:str,
                     category:str,
                     prel_prompt=None):
+    """
+    Runs the autodraft reply, generating the reply to be sent. Look at ag_autodraft_reply 
+    in utils/sysprompts.py to see how this works.
+    
+    Parameters: -
+    email_body: email to be classified
+    category: extracted category from categorize_email()
+    prel_prompt: It is used as primer. Basically, it is the user defined prompt, used like
+    "draft in affirmative", etc. When it is none, we just generate the reply without any 
+    priming and thus, in a generic default tone.
+    """
     logger.info(f"autodraft_reply() called for category={category}")
     try:
         if category and "spam" in category.lower():
@@ -128,6 +160,13 @@ Return JSON only:
 
 def summary(email_body:str,
             category:str):
+    """
+    Runs the summarization. Look at ag_summary in utils/sysprompts.py to see how this works.
+    
+    Parameters: -
+    email_body: email to be classified
+    category: extracted category from categorize_email()
+    """
     logger.info(f"summary() called for category={category}")
 
     try:
@@ -157,6 +196,15 @@ Return plaintext only
 
 def supersummarizer(user_question:str,
                     all_emails:list):
+    """
+    Runs the summarization. Look at ag_superquery in utils/sysprompts.py to see how this works.
+    Unlike denoted by the name, this is not a summarizer, as it takes in all the emails as context
+    and helps users answer, categorize, filter across all emails.
+    
+    Parameters: -
+    user_question: prompt by user
+    all_emails: all the emails in db 
+    """
     logger.info("supersummarizer() called")
     try:
         prompts=sysprompts.load_prompts()
@@ -195,9 +243,22 @@ Return plaintext only.
 
 def orchestrator(email_body:str,
                  user_question:str,
-                 use_rag:bool=os.getenv("USE_RAG","false").lower()=="true",
+                 use_rag:bool=True,
                  history:list|None=None):
 
+    """
+    Orchestrator function, that determines the entire logic. Works by: -
+    
+    1. At first, emails are categorized by passing them into categorize_emails()
+    2. Then, spam emails are excluded from any further process to save compute.
+    3. The 'intent_prompt' is retrieved. This becomes the dispatch for various LLM prompt calls.
+
+    Parameters: 
+    email_body: email to be classified
+    user_question: prompt by user
+    use_rag: RAG switch
+    history: past text conversations.
+    """
     logger.info("orchestrator() triggered")
     logger.info(f"User question:{user_question}")
 
@@ -297,4 +358,5 @@ def orchestrator(email_body:str,
             "raw":"A system error occurred while processing your request.",
             "json":None
         }
+
 
