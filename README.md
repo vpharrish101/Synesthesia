@@ -1,79 +1,157 @@
-# Synesthesia
+# Synesthesia - Email Productivity Agent
 
-
-## Overview
-
-This repository contains the source code for the **Email Productivity Agent**, an intelligent application designed to automate inbox management. The agent utilizes Large Language Models (LLMs) to ingest emails, categorize content, extract actionable tasks, and draft replies based on user-defined prompts.
+Modern, elegant email management with AI assistance. Built with Next.js, React, and Tailwind CSS.
 
 ## Features
 
-  * **Automated Categorization:** Classifies emails into categories such as Important, Newsletter, and Spam using configurable prompts.
-  * **Action Item Extraction:** Parses email content to identify tasks and deadlines, outputting structured data.
-  * **Draft Generation:** Automatically generates reply drafts based on context and user instructions. Drafts are saved for review and never sent automatically.
-  * **Chat Interface:** A RAG-like "Email Agent" interface allowing users to query their inbox (e.g., "Summarize this thread" or "What is urgent?").
+- **3-Column Layout**: Compact email list, detailed view, and optional RAG preview
+- **Frosted Glass Design**: Beautiful glassmorphic UI with soft pinkish-purple palette
+- **AI-Powered Search**: Semantic RAG search with Enter key, local keyword filtering
+- **Auto-Draft Replies**: Generate draft replies with typewriter animation
+- **Chat Assistant**: Floating AI assistant for contextual questions
+- **Prompt Editor**: Customize system prompts in settings
+- **Responsive Design**: Mobile-first, works on all devices
 
-## Installation & Setup
-
-### Prerequisites
-
-  * Python 3.11
-
-### Steps
-
-1.  **Clone the Repository**
-
-    ```bash
-    git clone https://github.com/username/email-productivity-agent.git
-    cd email-productivity-agent
-    ```
-
-2.  **Install Dependencies**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Configuration**
-    Create a `.env` file in the root directory and add your API credentials:
-
-    ```bash
-    LLM_API_KEY=your_key_here
-    ```
-
-## Usage Instructions
 
 ### Running the Application
 
-The application utilizes **Streamlit** for the frontend interface. To launch the system:
+The application utilizes **Streamlit <or> NextJS** for the frontend interface. To launch the system for streamlit:
 
 ```bash
 streamlit run app.py
 ```
+in the root folder. Additionaly, I've also coded a NextJS and CSS for styling <requires ~450mb of node modules to be downloaded>. The NodeJS is started by: 
 
+```bash
+npm run build
+npm run dev
+```
 Access the web UI at `http://localhost:8501`.
 
-### 1\. Loading the Inbox
+### Email Management
 
-  * Navigate to the **Inbox** section in the UI.
-  * Select **"Load Mock Inbox"** to ingest the sample dataset provided in `assets/mock_inbox.json`.
-  * The system will parse 10-20 sample emails, including meeting requests, newsletters, and project updates.
+- **Search**: Type to filter emails locally, press Enter for AI search
+- **View Details**: Click an email card to view full content
+- **Actions**: Check off action items directly on email detail
+- **Auto-Draft**: Click "Auto-Draft" to generate replies with typewriter animation
 
-### 2\. Configuring Prompts
+### Compose
 
-The agent's behavior is governed by the "Prompt Brain." [cite\_start]Navigate to the **Configuration** tab to edit the following:
+- Click the **+** button to open compose modal
+- Save drafts (stored locally or in DB)
+- Never auto-sends—requires explicit user action
 
-  * **Categorization Prompt:** Defines logic for tagging emails (e.g., separating "To-Do" from "Spam").
-  * **Action Item Prompt:** Instructions for extracting JSON-formatted task data.
-  * **Auto-Reply Prompt:** Sets the tone and structure for generated email drafts.
+### Chat Assistant
 
-### 3\. Using the Email Agent
+- **Bottom-right floating button** opens/closes chat
+- Ask about selected email or global questions
+- Uses email context when available
 
-Select an email from the list to view its details. Use the chat interface to interact with the content:
+### Settings
 
-  * *Summarization:* "Summarize this email." 
-  * *Task Extraction:* "What tasks do I need to do?" 
-  * *Drafting:* "Draft a reply agreeing to the meeting."
+- Edit all system prompts in `/settings`
+- Changes save immediately to backend
 
-## Project Assets
-  * **Mock Inbox:** Located in `assets/mock_inbox.json`. Contains sample data for testing ingestion and processing.
-  * **Default Prompts:** Pre-loaded templates are available in `assets/prompts.json` covering categorization, extraction, and drafting logic.
+## API Endpoints
+
+- `GET /health` - Backend health check
+- `GET /emails` - List all emails
+- `GET /search?q=query` - Semantic search
+- `POST /ds7m/ask` - Ask about email
+- `POST /ds7m/autodraft` - Generate draft
+- `POST /ds7m/superquery` - Global AI query
+- `GET /prompts/get_all` - Get all prompts
+- `POST /prompts/change_one` - Update prompts
+
+
+
+## Deployment
+
+```bash
+npm run build
+npm run start
+```
+
+Deploy to Vercel or any Node.js host.
+
+## Testing
+
+### Search Behavior
+
+1. Type in search box → filters emails locally (instant)
+2. Press Enter → performs RAG search, shows AI results
+
+### Auto-Draft Animation
+
+1. Open email detail
+2. Click "Auto-Draft"
+3. Text appears with typewriter effect (~50ms per char)
+4. Can edit while typing
+
+### Drafts
+
+1. Compose an email
+2. Click "Save Draft"
+3. Visit `/drafts` to see saved drafts
+
+
+### Features and System Configuration
+
+This project is built around a robust, prompt-driven architecture designed for high-performance, localized email processing.
+
+#### 1. AI Engine and Intelligence
+
+| Component | Configuration | Purpose |
+| :--- | :--- | :--- |
+| **Local LLM** | Ollama (`deepseek-llm:7b-chat`) | Handles all core NLP tasks: categorization, intent detection, action extraction, summary generation, and reply drafting. |
+| **Hybrid RAG** | **Semantic Search:** SentenceTransformer (`all-MiniLM-L6-v2`) | Provides context-aware retrieval for complex user queries. |
+| | **Lexical Search:** TF-IDF + Cosine Similarity | Ensures high recall for keyword-based retrieval. |
+| **Vector Store** | ChromaDB (Persistent) | Stores and manages RAG embeddings and index data. |
+
+#### 2. Email Processing Capabilities
+
+* **Automatic Categorization:** Tags emails based on user-defined system prompts.
+* **Structured Extraction:** Extracts action items and deadlines, outputting data in clean JSON format.
+* **Summary Generation:** Provides concise, three-point summaries for quick review.
+* **Drafting:** Generates auto-drafted replies, ready for user review.
+* **Natural-Language Querying:** Allows users to ask questions about any individual email or the inbox as a whole.
+
+#### 3. Architecture Overview
+
+| Layer | Technology / Implementation | Role |
+| :--- | :--- | :--- |
+| **Backend API** | FastAPI | Provides REST endpoints for the frontend, handling logic and LLM orchestration. |
+| **Orchestrator** | Prompt-driven LLM Routing Engine | Directs user queries and email content to the correct prompt/LLM workflow. |
+| **Database** | MongoDB | Primary persistence layer for storing emails, prompt configurations, and processed data. |
+| **Vector Indexing** | TF-IDF + Embedding-based RAG | Manages the hybrid indexing for the RAG system. |
+| **Frontend UI** | Streamlit | Provides the intuitive interface for inbox browsing, prompt editing, and the chat agent. |
+
+#### 4. Data Structure and Storage
+
+All emails are stored with the following processed fields:
+* `id`, `sender`, `subject`, `timestamp`, `body` (Raw email data)
+* `category` (Processed by LLM)
+* `actions` (Structured extraction)
+* `summary` (Three-point synopsis generated by LLM)
+* `draft_reply` (Generated reply text)
+
+**RAG Artifacts:**
+* Embeddings, TF-IDF model, sparse matrix, and ID mapping are stored for retrieval efficiency.
+
+#### 5. Initialization Workflow
+
+To start the system, the following sequence is executed:
+1.  Load system prompts into MongoDB.
+2.  Ingest and process all mock emails (automatic categorization, extraction).
+3.  Build both the TF-IDF and embedding indices.
+4.  Start the LLM orchestrator and FastAPI services.
+
+#### 6. System Requirements
+
+The following environment is required for optimal performance, particularly due to the local LLM and RAG components:
+
+* **CPU:** 6+ cores
+* **RAM:** 16–32 GB
+* **GPU:** NVIDIA RTX (6–12 GB VRAM recommended for LLM operations)
+* **Python:** 3.10–3.12
+* **Ollama:** Must be installed and running for local LLM execution.
