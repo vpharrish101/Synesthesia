@@ -1,5 +1,5 @@
 # Synesthesia - Email Productivity Agent
-
+ 
 Modern, elegant email management with AI assistance.
 
 ## Features
