@@ -12,6 +12,9 @@ Modern, elegant email management with AI assistance.
 - **Prompt Editor**: Customize system prompts in settings
 - **Responsive Design**: Mobile-first, works on all devices
 
+## UI Snip: -
+<img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/df7bcff3-5031-4184-8409-b85153cce06e" />
+
 
 ### Running the Application
 
