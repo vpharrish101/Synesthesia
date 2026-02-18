@@ -4,7 +4,8 @@ Modern, elegant email management with AI assistance.
 
 ## Features
 
-- **3-Column Layout**: Compact email list, detailed view, and optional RAG preview
+- Designed the entire backend logic to be highly statless, so as to prevenet coupling issues.
+-  **3-Column Layout**: Compact email list, detailed view, and optional RAG preview
 - **Frosted Glass Design**: Beautiful glassmorphic UI with soft pinkish-purple palette
 - **AI-Powered Search**: Semantic RAG search with Enter key, local keyword filtering
 - **Auto-Draft Replies**: Generate draft replies with typewriter animation
@@ -14,6 +15,8 @@ Modern, elegant email management with AI assistance.
 
 ## UI Snip: -
 <img width="1919" height="1027" alt="image" src="https://github.com/user-attachments/assets/df7bcff3-5031-4184-8409-b85153cce06e" />
+
+Note: Backend logic is custom written by me, and Frontend is generated via Claude Opus 4.5
 
 
 ### Running the Application
@@ -30,30 +33,6 @@ npm run build
 npm run dev
 ```
 Access the web UI at `http://localhost:8501`.
-
-### Email Management
-
-- **Search**: Type to filter emails locally, press Enter for AI search
-- **View Details**: Click an email card to view full content
-- **Actions**: Check off action items directly on email detail
-- **Auto-Draft**: Click "Auto-Draft" to generate replies with typewriter animation
-
-### Compose
-
-- Click the **+** button to open compose modal
-- Save drafts (stored locally or in DB)
-- Never auto-sends—requires explicit user action
-
-### Chat Assistant
-
-- **Bottom-right floating button** opens/closes chat
-- Ask about selected email or global questions
-- Uses email context when available
-
-### Settings
-
-- Edit all system prompts in `/settings`
-- Changes save immediately to backend
 
 ## API Endpoints
 
@@ -102,7 +81,7 @@ Deploy to Vercel or any Node.js host.
 
 This project is built around a robust, prompt-driven architecture designed for high-performance, localized email processing.
 
-#### 1. AI Engine and Intelligence
+#### 1. LLM Engine and Intelligence
 
 | Component | Configuration | Purpose |
 | :--- | :--- | :--- |
@@ -149,12 +128,28 @@ To start the system, the following sequence is executed:
 3.  Build both the TF-IDF and embedding indices.
 4.  Start the LLM orchestrator and FastAPI services.
 
-#### 6. System Requirements
 
-The following environment is required for optimal performance, particularly due to the local LLM and RAG components:
+### Email Management
 
-* **CPU:** 6+ cores
-* **RAM:** 16–32 GB
-* **GPU:** NVIDIA RTX (6–12 GB VRAM recommended for LLM operations)
-* **Python:** 3.10–3.12
-* **Ollama:** Must be installed and running for local LLM execution.
+- **Search**: Type to filter emails locally, press Enter for AI search
+- **View Details**: Click an email card to view full content
+- **Actions**: Check off action items directly on email detail
+- **Auto-Draft**: Click "Auto-Draft" to generate replies with typewriter animation
+
+### Compose
+
+- Click the **+** button to open compose modal
+- Save drafts (stored locally or in DB)
+- Never auto-sends, requires explicit user action
+
+### Chat Assistant
+
+- **Bottom-right floating button** opens/closes chat
+- Ask about selected email or global questions
+- Uses email context when available
+
+### Settings
+
+- Edit all system prompts in `/settings`
+- Changes save immediately to backend
+
