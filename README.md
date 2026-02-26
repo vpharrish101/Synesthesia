@@ -8,7 +8,7 @@ Modern, elegant email management with AI assistance.
 -  **3-Column Layout**: Compact email list, detailed view, and optional RAG preview
 - **Frosted Glass Design**: Beautiful glassmorphic UI with soft pinkish-purple palette
 - **AI-Powered Search**: Semantic RAG search with Enter key, local keyword filtering
-- **Auto-Draft Replies**: Generate draft replies with typewriter animation
+- **Auto-Draft Replies**: Generate draft replies with typewriter animation 
 - **Chat Assistant**: Floating AI assistant for contextual questions
 - **Prompt Editor**: Customize system prompts in settings
 - **Responsive Design**: Mobile-first, works on all devices
